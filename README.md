@@ -1,24 +1,4 @@
-# #1 Написать функцию на postgres
-
-## Задача:
-
-Дана таблица
-
-```sql
-CREATE TABLE public.cats (
-    id_cat uuid NULL DEFAULT uuid_generate_v4(),
-    "name" int8 NOT NULL GENERATED ALWAYS AS IDENTITY
-);
-```
-
-Написать функцию, которая будет вставлять в таблицу заданный объём данных в Mb.
-Объём должен передаваться параметром в виде числа Mb.
-
----
-
-## Решение:
-
-### Пользователь и БД
+### Подготовительная работа (Пользователь и БД)
 
 Рекомендуется перед началом работы создать нового пользователя и БД, выдать пользователю права на БД
 и работать от имени созданного пользователя в созданной БД.
@@ -55,6 +35,26 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```sql
 SELECT * FROM pg_extension WHERE extname = 'uuid-ossp';
 ```
+
+# #1 Написать функцию на postgres
+
+## Задача:
+
+Дана таблица
+
+```sql
+CREATE TABLE public.cats (
+    id_cat uuid NULL DEFAULT uuid_generate_v4(),
+    "name" int8 NOT NULL GENERATED ALWAYS AS IDENTITY
+);
+```
+
+Написать функцию, которая будет вставлять в таблицу заданный объём данных в Mb.
+Объём должен передаваться параметром в виде числа Mb.
+
+---
+
+## Решение:
 
 ### Таблица cats
 
